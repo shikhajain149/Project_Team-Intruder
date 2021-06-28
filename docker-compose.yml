@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  shikhaapp1:
+    image: ubuntu:20.04
+    container_name: test1 
+    command: date
+
+  shikhapp2:
+    image: alpine
+    container_name: test2
+    command: sleep 100
