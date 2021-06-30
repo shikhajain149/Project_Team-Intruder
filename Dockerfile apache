@@ -1,0 +1,7 @@
+FROM centos
+LABEL "author name "="Shikha jain"
+RUN dnf install httpd -y
+Add index.html  /var/www/html/index.html
+EXPOSE 80
+CMD httpd -DFOREGROUND
+
