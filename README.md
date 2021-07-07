@@ -95,16 +95,136 @@ tar -xvf hadoop-3.3.1.tar.gz
 ```
 
 
+## Configuration File Changes in Namenode ##
 
-## Configuration File Changes ##
-# 1. core-site.xml 
+
+### hadoop-env.sh 
+
+```
+
+export java_home=javapath
+export home=/hadoop3
+
+```
+
+### core-site.xml 
+
+```
+<configuration>
+<property>
+	<name>fs.default.name</name>
+	<value>hdfs://namenode:9000</value>
+</property>
+
+</configuration>
+```
+
+### hdfs-site.xml 
+
+```
+<configuration>
+<property>
+	<name>dfs.namenode.name.dir</name>
+	<value>/mynndata</value>
+</property>
+
+<property>
+	<name>dfs.replication</name>
+	<value>3</value>
+</property>
+</configuration>
+```
+
+
+## Configuration File Changes in Datanode1 ##
+
+
+### hadoop-env.sh 
+
+```
+
+export java_home=javapath
+export home=/hadoop3
+
+```
+
+### core-site.xml 
+
+```
+<configuration>
+<property>
+	<name>fs.default.name</name>
+	<value>hdfs://namenode:9000</value>
+</property>
+
+</configuration>
+```
+
+
+
+### hdfs-site.xml 
+
+```
+<configuration>
+
+<property>
+	<name>dfs.datanode.data.dir</name>
+	<value>/mydndata1</value>
+</property>
+</configuration>
+```
+
+
+## Configuration File Changes in Datanode2 ##
+
+
+### hadoop-env.sh 
+
+```
+
+export java_home=javapath
+export home=/hadoop3
+
+```
+
+### core-site.xml 
+
+```
+<configuration>
+<property>
+	<name>fs.default.name</name>
+	<value>hdfs://namenode:9000</value>
+</property>
+
+</configuration>
+```
+
+
+
+### hdfs-site.xml 
+
+```
+<configuration>
+
+<property>
+	<name>dfs.datanode.data.dir</name>
+	<value>/mydndata2</value>
+</property>
+</configuration>
+```
+
+## Only Namenode machine ##
+
+```
+docker exec -it namenode bash
+hdfs  namenode  -format 
+
+'''
+
+## Information About Nodes ##
 
 '''
 docker exec -it namenode bash
-vi core-site.xml
-<configuration>
-  <property>
-    <name> fs.default.name</name>
-    <value>hdfs://namenode:9000</value>
-  </property>
-  <configuration>
+hdfs dfsadmin -report 
+
+'''
