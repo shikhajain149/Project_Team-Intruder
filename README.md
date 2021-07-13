@@ -102,7 +102,8 @@ tar -xvf hadoop-3.3.1.tar.gz
 
 ```
 
-export java_home=javapath
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el8_4.x86_64
+
 export home=/hadoop3
 
 ```
@@ -143,7 +144,8 @@ export home=/hadoop3
 
 ```
 
-export java_home=javapath
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el8_4.x86_64
+
 export home=/hadoop3
 
 ```
@@ -182,7 +184,8 @@ export home=/hadoop3
 
 ```
 
-export java_home=javapath
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el8_4.x86_64
+
 export home=/hadoop3
 
 ```
